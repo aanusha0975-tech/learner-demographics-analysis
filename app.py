@@ -8,4 +8,15 @@ if uploaded_file:
     users = pd.read_excel(uploaded_file, sheet_name='Users')
     courses = pd.read_excel(uploaded_file, sheet_name='Courses')
     transactions = pd.read_excel(uploaded_file, sheet_name='Transactions')
-    # Merge them and proceed with analysis...
+    st.subheader("Users Data")
+st.dataframe(users)
+
+st.subheader("Age Distribution")
+
+fig = px.histogram(
+    users,
+    x="Age",
+    title="Age Distribution of Learners"
+)
+
+st.plotly_chart(fig)
